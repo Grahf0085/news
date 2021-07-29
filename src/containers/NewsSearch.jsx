@@ -7,7 +7,7 @@ export default class NewsSearch extends Component {
   
   state = {
     loading: true,
-    articles: {},
+    articles: [],
     search: 'bitcoin',
   };
 
@@ -25,7 +25,7 @@ export default class NewsSearch extends Component {
   async componentDidMount() {
     const { search } = this.state;
     const articles = await newsApi(search);
-    this.setState({ articles: articles.articles, loading: false });
+    // this.setState({ articles: articles.articles, loading: false });
   }
 
   async componentDidUpdate() {
@@ -37,7 +37,7 @@ export default class NewsSearch extends Component {
   render() {
     const { articles, loading, search } = this.state;
 
-    if(loading) return <h1>Loading...</h1>;
+    // if(loading) return <h1>Loading...</h1>;
 
     return (
 
