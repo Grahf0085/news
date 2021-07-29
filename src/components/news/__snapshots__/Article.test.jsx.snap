@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article componenet renders article 1`] = `
+<DocumentFragment>
+  <section
+    data-testid="display"
+  >
+    <p>
+      Title: Distaster Happens
+    </p>
+    <p>
+      Author: Some Person
+    </p>
+    <p>
+      Description: Life went on
+    </p>
+  </section>
+</DocumentFragment>
+`;

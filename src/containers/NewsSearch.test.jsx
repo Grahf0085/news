@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import NewsSearch from './NewsSearch';
 import Search from '../components/news/Search';
 
@@ -15,7 +15,9 @@ describe('NewsSearch container', () => {
 
     screen.getByText('Loading...');
     const ul = await screen.findByTestId('list');
-    expect(ul).not.toBeEmptyDOMElement();
+    return waitFor(() => {
+      expect(ul).not.toBeEmptyDOMElement();
+    }, 5000);
 
   });
 });
