@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { newsApi } from '../services/newsAPI';
 import ArticleList from '../components/news/ArticleList';
+import Search from '../components/news/Search';
 
 export default class NewsSearch extends Component {
   
   state = {
     loading: true,
-    articles: {}
+    articles: {},
+    search: 'bitcoin',
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
   };
 
   async componentDidMount() {
@@ -15,10 +21,19 @@ export default class NewsSearch extends Component {
   }
 
   render() {
-    const { articles, loading } = this.state;
+    const { articles, loading, search } = this.state;
 
     if(loading) return <h1>Loading...</h1>;
 
-    return <ArticleList articles={articles} />;
+    return (
+
+      <>
+
+        <Search search={search}  onChange={this.handleChange}/>
+
+        <ArticleList articles={articles} />
+
+      </>
+    );
   }
 }
