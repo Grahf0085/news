@@ -13,7 +13,7 @@ const ArticleList = ({ articles }) => {
     </li>
   ));
 
-  return <ul>{articleElements}</ul>;
+  return <ul data-testid="list">{articleElements}</ul>;
 
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Article = ({ title, author, description }) => (
-  <section>
+  <section data-testid="display">
     <p>Title: {title}</p>
     <p>Author: {author}</p>
     <p>Description: {description}</p>
