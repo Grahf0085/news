@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search component input box 1`] = `
+<DocumentFragment>
+  <form>
+    <input
+      data-testid="newsSearch"
+      name="newsSearch"
+      placeholder="Search For News"
+      type="text"
+      value=""
+    />
+  </form>
+</DocumentFragment>
+`;
