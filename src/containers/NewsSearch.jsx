@@ -11,12 +11,26 @@ export default class NewsSearch extends Component {
     search: 'bitcoin',
   };
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const { search } = this.state;
+    const articles = await newsApi(search);
+    this.setState({ articles: articles.articles, loading: false });
+  }
+
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
+    this.setState({ search: target.value });
   };
 
   async componentDidMount() {
-    const articles = await newsApi();
+    const { search } = this.state;
+    const articles = await newsApi(search);
+    this.setState({ articles: articles.articles, loading: false });
+  }
+
+  async componentDidUpdate() {
+    const { search } = this.state;
+    const articles = await newsApi(search);
     this.setState({ articles: articles.articles, loading: false });
   }
 
@@ -29,7 +43,8 @@ export default class NewsSearch extends Component {
 
       <>
 
-        <Search search={search}  onChange={this.handleChange}/>
+        <Search search={search}  onChange={this.handleChange} 
+          handleSubmit={this.handleSubmit} />
 
         <ArticleList articles={articles} />
 

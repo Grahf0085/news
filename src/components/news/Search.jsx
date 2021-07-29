@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ term, onChange }) => {
+const Search = ({ term, onChange, handleSubmit }) => {
 
   return <form>
     <input
@@ -11,6 +11,7 @@ const Search = ({ term, onChange }) => {
       name="newsSearch"
       value={term}
       onChange={onChange}
+      handleSubmit={handleSubmit}
     />
   </form>;
 
@@ -19,6 +20,7 @@ const Search = ({ term, onChange }) => {
 Search.propTypes = {
   term: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default Search;
