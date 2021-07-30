@@ -7,13 +7,13 @@ describe('NewsSearch container', () => {
   it('renders news and displays news', async () => {
     render(<NewsSearch />);
 
-    const { queryByPlaceholderText } = render(<Search />);
-    const input = queryByPlaceholderText('Search For News');
+    // const { queryByPlaceholderText } = render(<Search />);
+    const input = screen.getByPlaceholderText('Search For News');
 
     fireEvent.change(input, { target: { value: 'Olympics' } });
     expect(input.value).toBe('Olympics');
 
-    screen.getByText('Loading...');
+    // screen.getByText('Loading...');
     const ul = await screen.findByTestId('list');
     return waitFor(() => {
       expect(ul).not.toBeEmptyDOMElement();

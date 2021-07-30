@@ -7,7 +7,7 @@ export default class NewsSearch extends Component {
   
   state = {
     loading: true,
-    articles: {},
+    articles: [],
     search: 'bitcoin',
   };
 
